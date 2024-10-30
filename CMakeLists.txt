@@ -14,4 +14,7 @@ add_executable(cxl_esbmc main.cpp
         linux/linux_kref.h
         linux/linux_refcount.h
         linux/include/linux/cdev.h
+        linux/include/linux/kobject.h
+        linux/include/linux/mutex.h
+        linux/include/linux/mutex_types.h
 )

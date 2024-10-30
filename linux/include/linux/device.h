@@ -1,6 +1,9 @@
 #ifndef LINUX_DEVICE_H
 #define LINUX_DEVICE_H
 
+#include "kobject.h"
+#include "mutex.h"
+
 #define DEVICE_NAME "cxl_device"
 
 typedef unsigned long long u64;
