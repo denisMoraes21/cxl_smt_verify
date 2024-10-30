@@ -4,5 +4,14 @@ project(cxl_esbmc)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(cxl_esbmc main.cpp
-        cxl_memdev_structs.h
-        linux_device_structs.h)
+        linux/include/linux/device.h
+        examples/Clang/clang_example.cpp
+        examples/Others/clang_example.c
+        examples/GCC/gcc_example.cpp
+        linux/drivers/cxl/cxlmem.h
+        linux/linux_kobject.h
+        linux/linux_types.h
+        linux/linux_kref.h
+        linux/linux_refcount.h
+        linux/include/linux/cdev.h
+)

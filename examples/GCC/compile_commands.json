@@ -1,0 +1,17 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-g",
+      "-o",
+      "gcc_example",
+      "gcc_example.cpp"
+    ],
+    "directory": "/home/denis/CLionProjects/cxl_esbmc/examples/GCC",
+    "file": "/home/denis/CLionProjects/cxl_esbmc/examples/GCC/gcc_example.cpp",
+    "output": "/home/denis/CLionProjects/cxl_esbmc/examples/GCC/gcc_example"
+  }
+]

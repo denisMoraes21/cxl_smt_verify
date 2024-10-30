@@ -55,6 +55,24 @@ build CMakeFiles/cxl_esbmc.dir/main.cpp.o: CXX_COMPILER__cxl_esbmc_unscanned_Deb
   OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
   OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir
 
+build CMakeFiles/cxl_esbmc.dir/examples/Clang/clang_example.cpp.o: CXX_COMPILER__cxl_esbmc_unscanned_Debug /home/denis/CLionProjects/cxl_esbmc/examples/Clang/clang_example.cpp || cmake_object_order_depends_target_cxl_esbmc
+  DEP_FILE = CMakeFiles/cxl_esbmc.dir/examples/Clang/clang_example.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
+  OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir/examples/Clang
+
+build CMakeFiles/cxl_esbmc.dir/examples/Others/clang_example.c.o: C_COMPILER__cxl_esbmc_unscanned_Debug /home/denis/CLionProjects/cxl_esbmc/examples/Others/clang_example.c || cmake_object_order_depends_target_cxl_esbmc
+  DEP_FILE = CMakeFiles/cxl_esbmc.dir/examples/Others/clang_example.c.o.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
+  OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir/examples/Others
+
+build CMakeFiles/cxl_esbmc.dir/examples/GCC/gcc_example.cpp.o: CXX_COMPILER__cxl_esbmc_unscanned_Debug /home/denis/CLionProjects/cxl_esbmc/examples/GCC/gcc_example.cpp || cmake_object_order_depends_target_cxl_esbmc
+  DEP_FILE = CMakeFiles/cxl_esbmc.dir/examples/GCC/gcc_example.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
+  OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir/examples/GCC
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cxl_esbmc
@@ -63,7 +81,7 @@ build CMakeFiles/cxl_esbmc.dir/main.cpp.o: CXX_COMPILER__cxl_esbmc_unscanned_Deb
 #############################################
 # Link the executable cxl_esbmc
 
-build cxl_esbmc: CXX_EXECUTABLE_LINKER__cxl_esbmc_Debug CMakeFiles/cxl_esbmc.dir/main.cpp.o
+build cxl_esbmc: CXX_EXECUTABLE_LINKER__cxl_esbmc_Debug CMakeFiles/cxl_esbmc.dir/main.cpp.o CMakeFiles/cxl_esbmc.dir/examples/Clang/clang_example.cpp.o CMakeFiles/cxl_esbmc.dir/examples/Others/clang_example.c.o CMakeFiles/cxl_esbmc.dir/examples/GCC/gcc_example.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
   POST_BUILD = :

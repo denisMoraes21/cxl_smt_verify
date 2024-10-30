@@ -49,7 +49,22 @@
 			},
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2,
+				4
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -fdiagnostics-color=always"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				3
 			]
 		}
 	],
@@ -82,7 +97,10 @@
 			"name" : "Source Files",
 			"sourceIndexes" : 
 			[
-				0
+				0,
+				2,
+				3,
+				4
 			]
 		},
 		{
@@ -90,7 +108,12 @@
 			"sourceIndexes" : 
 			[
 				1,
-				2
+				5,
+				6,
+				7,
+				8,
+				9,
+				10
 			]
 		}
 	],
@@ -104,12 +127,55 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "cxl_memdev_structs.h",
+			"path" : "linux/include/linux/device.h",
 			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 1,
-			"path" : "linux_device_structs.h",
+			"compileGroupIndex" : 0,
+			"path" : "examples/Clang/clang_example.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "examples/Others/clang_example.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "examples/GCC/gcc_example.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/drivers/cxl/cxlmem.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/linux_kobject.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/linux_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/linux_kref.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/linux_refcount.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/cdev.h",
 			"sourceGroupIndex" : 1
 		}
 	],

@@ -1,0 +1,138 @@
+{
+  "bus":"root3",
+  "provider":"cxl_test",
+  "ports:root3":[
+    {
+      "port":"port5",
+      "host":"cxl_host_bridge.1",
+      "ports:port5":[
+        {
+          "port":"port8",
+          "host":"cxl_switch_uport.1",
+          "endpoints:port8":[
+            {
+              "endpoint":"endpoint9",
+              "host":"mem2",
+              "memdev":{
+                "memdev":"mem2",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x1",
+                "numa_node":1,
+                "host":"cxl_mem.1"
+              }
+            },
+            {
+              "endpoint":"endpoint15",
+              "host":"mem6",
+              "memdev":{
+                "memdev":"mem6",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x5",
+                "numa_node":1,
+                "host":"cxl_mem.5"
+              }
+            }
+          ]
+        },
+        {
+          "port":"port12",
+          "host":"cxl_switch_uport.3",
+          "endpoints:port12":[
+            {
+              "endpoint":"endpoint17",
+              "host":"mem8",
+              "memdev":{
+                "memdev":"mem8",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x7",
+                "numa_node":1,
+                "host":"cxl_mem.7"
+              }
+            },
+            {
+              "endpoint":"endpoint13",
+              "host":"mem4",
+              "memdev":{
+                "memdev":"mem4",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x3",
+                "numa_node":1,
+                "host":"cxl_mem.3"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port":"port4",
+      "host":"cxl_host_bridge.0",
+      "ports:port4":[
+        {
+          "port":"port6",
+          "host":"cxl_switch_uport.0",
+          "endpoints:port6":[
+            {
+              "endpoint":"endpoint7",
+              "host":"mem1",
+              "memdev":{
+                "memdev":"mem1",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0",
+                "numa_node":0,
+                "host":"cxl_mem.0"
+              }
+            },
+            {
+              "endpoint":"endpoint14",
+              "host":"mem5",
+              "memdev":{
+                "memdev":"mem5",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x4",
+                "numa_node":0,
+                "host":"cxl_mem.4"
+              }
+            }
+          ]
+        },
+        {
+          "port":"port10",
+          "host":"cxl_switch_uport.2",
+          "endpoints:port10":[
+            {
+              "endpoint":"endpoint16",
+              "host":"mem7",
+              "memdev":{
+                "memdev":"mem7",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x6",
+                "numa_node":0,
+                "host":"cxl_mem.6"
+              }
+            },
+            {
+              "endpoint":"endpoint11",
+              "host":"mem3",
+              "memdev":{
+                "memdev":"mem3",
+                "pmem_size":"256.00 MiB (268.44 MB)",
+                "ram_size":"256.00 MiB (268.44 MB)",
+                "serial":"0x2",
+                "numa_node":0,
+                "host":"cxl_mem.2"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
