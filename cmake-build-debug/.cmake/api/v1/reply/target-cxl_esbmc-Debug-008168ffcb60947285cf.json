@@ -51,19 +51,6 @@
 			[
 				0,
 				2,
-				4
-			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-g -fdiagnostics-color=always"
-				}
-			],
-			"language" : "C",
-			"sourceIndexes" : 
-			[
 				3
 			]
 		}
@@ -99,8 +86,7 @@
 			[
 				0,
 				2,
-				3,
-				4
+				3
 			]
 		},
 		{
@@ -108,6 +94,7 @@
 			"sourceIndexes" : 
 			[
 				1,
+				4,
 				5,
 				6,
 				7,
@@ -116,7 +103,15 @@
 				10,
 				11,
 				12,
-				13
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21
 			]
 		}
 	],
@@ -136,44 +131,18 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "examples/Clang/clang_example.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "examples/Others/clang_example.c",
+			"path" : "bear_examples/Clang/clang_example.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "examples/GCC/gcc_example.cpp",
+			"path" : "bear_examples/GCC/gcc_example.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"path" : "linux/drivers/cxl/cxlmem.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "linux/linux_kobject.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "linux/linux_types.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "linux/linux_kref.h",
-			"sourceGroupIndex" : 1
-		},
-		{
-			"backtrace" : 1,
-			"path" : "linux/linux_refcount.h",
 			"sourceGroupIndex" : 1
 		},
 		{
@@ -194,6 +163,71 @@
 		{
 			"backtrace" : 1,
 			"path" : "linux/include/linux/mutex_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/kref.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/refcount.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/pm.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/acpi/actypes.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/spinlock_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/spinlock_types_raw.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/spinlock_types_up.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/asm-generic/device.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/device/class.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/uidgid_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/uapi/asm_generic/posix_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/workqueue_types.h",
 			"sourceGroupIndex" : 1
 		}
 	],

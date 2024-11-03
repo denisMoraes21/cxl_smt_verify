@@ -6,6 +6,8 @@
 #define CXLMEM_H
 
 #include "../../include/linux/device.h"
+#include "../../include/linux/cdev.h"
+#include "../../include/linux/workqueue_types.h"
 
 struct clx_memdev {
     struct device dev;
@@ -14,8 +16,8 @@ struct clx_memdev {
     struct work_struct detach_work;
     struct cxl_nvdimm_bridge *cxl_nvb{};
     struct cxl_port *endpoint{};
-    int id = 1;
-    int depth = 2;
+    int id;
+    int depth;
 };
 
 #endif //CXLMEM_H
