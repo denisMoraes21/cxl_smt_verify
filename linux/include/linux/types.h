@@ -8,6 +8,10 @@
 #include "../acpi/actypes.h"
 #include "../uapi/asm_generic/posix_types.h"
 
+struct hlist_node {
+    struct hlist_node *next, **pprev;
+};
+
 typedef struct {
     long counter;
 } atomic_long_t;

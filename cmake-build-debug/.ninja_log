@@ -1,2 +1,5 @@
 # ninja log v6
 1	583	1729884955056625597	CMakeFiles/cxl_esbmc.dir/examples/clang_example.cpp.o	1f1f9895502a8543
+0	192	1730665689177842088	CMakeFiles/cxl_esbmc.dir/bear_examples/Clang/clang_example.cpp.o	72ef13b17e15a211
+0	192	1730665689177842088	CMakeFiles/cxl_esbmc.dir/bear_examples/GCC/gcc_example.cpp.o	e2000fc23a4797ff
+1	164	1730665703201616286	CMakeFiles/cxl_esbmc.dir/main.cpp.o	a724c8e775e787dd

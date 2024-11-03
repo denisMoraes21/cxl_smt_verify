@@ -1,5 +1,5 @@
 # Structs
-- struct cxl_memdev dev: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxlmem.h#L49
+1. struct cxl_memdev dev: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxlmem.h#L49
   - struct device: https://github.com/torvalds/linux/blob/master/include/linux/device.h#L721
     - struct kobject: https://github.com/torvalds/linux/blob/master/include/linux/kobject.h#L64
       - const char *name;
@@ -223,3 +223,52 @@
   - struct cxl_port *endpoint;
   - int id;
   - int depth;
+
+2. struct cxl_mbox_cmd: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxlmem.h#L49
+  - u16 opcode: https://github.com/torvalds/linux/blob/master/include/asm-generic/int-ll64.h#L19
+  - void *payload_in;
+  - void *payload_out;
+  - size_t size_in;
+  - size_t size_out;
+  - size_t min_out;
+  - int poll_count;
+  - int poll_interval_ms;
+  - u16 return_code: https://github.com/torvalds/linux/blob/master/include/asm-generic/int-ll64.h#L19
+
+3. struct cxl_event_state https://github.com/torvalds/linux/blob/master/drivers/cxl/cxlmem.h#L49
+  - struct cxl_get_event_payload *buf
+  - struct mutex log_lock;
+
+4. struct cxl_poison_state: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxlmem.h#L49
+  - u32 max_errors;
+  - DECLARE_BITMAP(enabled_cmds, CXL_POISON_ENABLED_MAX): https://github.com/torvalds/linux/blob/master/drivers/cxl/pmem.c#L14
+  - struct cxl_mbox_poison_out *list_out;
+  - struct mutex lock;
+
+5. struct cxl_fw_state: https://github.com/torvalds/linux/blob/d5aaa0bc6de9c2649fa15def775a6710c052c966/drivers/cxl/cxlmem.h#L356
+  - DECLARE_BITMAP(state, CXL_FW_STATE_BITS);
+  - bool oneshot;
+  - int num_slots;
+  - int cur_slot;
+  - int next_slot;
+
+6. struct cxl_security_state: https://github.com/torvalds/linux/blob/d5aaa0bc6de9c2649fa15def775a6710c052c966/drivers/cxl/cxlmem.h#L356
+  - unsigned long state;
+  - DECLARE_BITMAP(enabled_cmds, CXL_SEC_ENABLED_MAX);
+  - int poll_tmo_secs;
+  - bool sanitize_active;
+  - struct delayed_work poll_dwork: https://github.com/torvalds/linux/blob/master/include/linux/workqueue.h#L113
+    - struct work_struct work;
+    - struct timer_list timer: https://github.com/torvalds/linux/blob/master/include/linux/timer_types.h#L8
+      - struct hlist_node entry: https://github.com/torvalds/linux/blob/master/include/linux/types.h#L201
+      - unsigned long expires;
+      - void (*function)(struct timer_list *);
+      - u32	flags;
+
+            #ifdef CONFIG_LOCKDEP
+            struct lockdep_map	lockdep_map;
+            #endif
+      
+    - struct workqueue_struct *wq;
+    - int cpu;
+  - struct kernfs_node *sanitize_node;

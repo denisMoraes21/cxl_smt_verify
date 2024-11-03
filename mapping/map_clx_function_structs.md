@@ -38,12 +38,12 @@
 37. int devm_cxl_add_pmem_region(struct cxl_region *cxlr)
 
 # Structs
-1. struct cxl_memdev
-2. struct cxl_mbox_cmd
-3. struct cxl_event_state
-4. struct cxl_poison_state
-5. struct cxl_fw_state
-6. struct cxl_security_state
+1. struct cxl_memdev - ok
+2. struct cxl_mbox_cmd - ok
+3. struct cxl_event_state - ok
+4. struct cxl_poison_state - ?
+5. struct cxl_fw_state - ?
+6. struct cxl_security_state - ?
 7. struct cxl_dpa_perf
 8. struct cxl_dev_state
 9. struct cxl_memdev_state
