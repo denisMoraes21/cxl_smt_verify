@@ -15,8 +15,6 @@ enum device_removable {
 	DEVICE_REMOVABLE,
 };
 
-typedef unsigned long long u64;
-
 struct dev_msi_info {
 // #ifdef CONFIG_GENERIC_MSI_IRQ
 // 	struct irq_domain	*domain;

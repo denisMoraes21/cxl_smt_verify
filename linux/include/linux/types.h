@@ -8,6 +8,8 @@
 #include "../acpi/actypes.h"
 #include "../uapi/asm_generic/posix_types.h"
 
+typedef unsigned long long u64;
+
 struct hlist_node {
     struct hlist_node *next, **pprev;
 };

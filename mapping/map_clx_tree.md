@@ -272,3 +272,57 @@
     - struct workqueue_struct *wq;
     - int cpu;
   - struct kernfs_node *sanitize_node;
+
+7. struct cxl_dpa_perf: https://github.com/torvalds/linux/blob/d5aaa0bc6de9c2649fa15def775a6710c052c966/drivers/cxl/cxlmem.h#L400
+  - struct range dpa_range; https://github.com/torvalds/linux/blob/master/include/linux/range.h#L6
+    - u64   start;
+    - u64   end;
+  - struct access_coordinate coord[ACCESS_COORDINATE_MAX]: https://github.com/torvalds/linux/blob/master/include/linux/node.h#L29
+    - unsigned int read_bandwidth;
+    - unsigned int write_bandwidth;
+    - unsigned int read_latency;
+    - unsigned int write_latency;
+  - struct access_coordinate cdat_coord[ACCESS_COORDINATE_MAX]: https://github.com/torvalds/linux/blob/master/include/linux/node.h#L29
+    - unsigned int read_bandwidth;
+    - unsigned int write_bandwidth;
+    - unsigned int read_latency;
+    - unsigned int write_latency;
+  - int qos_class;
+
+8. struct cxl_dev_state: https://github.com/torvalds/linux/blob/d5aaa0bc6de9c2649fa15def775a6710c052c966/drivers/cxl/cxlmem.h#L432
+  - struct device *dev;
+  - struct cxl_memdev *cxlmd;
+  - struct cxl_register_map reg_map;
+  - struct cxl_regs regs;
+  - int cxl_dvsec;
+  - bool rcd;
+  - bool media_ready;
+  - struct resource dpa_res;
+  - struct resource pmem_res;
+  - struct resource ram_res;
+  - u64 serial;
+  - enum cxl_devtype type;
+  - struct cxl_mailbox cxl_mbox;
+
+9. struct cxl_memdev_state: https://github.com/torvalds/linux/blob/d5aaa0bc6de9c2649fa15def775a6710c052c966/drivers/cxl/cxlmem.h#L400
+  - struct cxl_dev_state cxlds;
+    size_t lsa_size;
+    char firmware_version[0x10];
+    DECLARE_BITMAP(enabled_cmds, CXL_MEM_COMMAND_ID_MAX);
+    DECLARE_BITMAP(exclusive_cmds, CXL_MEM_COMMAND_ID_MAX);
+    u64 total_bytes;
+    u64 volatile_only_bytes;
+    u64 persistent_only_bytes;
+    u64 partition_align_bytes;
+    u64 active_volatile_bytes;
+    u64 active_persistent_bytes;
+    u64 next_volatile_bytes;
+    u64 next_persistent_bytes;
+
+    struct cxl_dpa_perf ram_perf;
+    struct cxl_dpa_perf pmem_perf;
+
+    struct cxl_event_state event;
+    struct cxl_poison_state poison;
+    struct cxl_security_state security;
+    struct cxl_fw_state fw;

@@ -10,6 +10,8 @@
 #include "../../include/linux/workqueue_types.h"
 #include "../../include/asm-generic/int-ll64.h"
 #include "../../include/linux/workqueue.h"
+#include "../../include/linux/range.h"
+#include "../../include/linux/node.h"
 
 #define CXL_FW_STATE_BITS		32
 
@@ -35,7 +37,7 @@ enum security_cmd_enabled_bits {
     CXL_SEC_ENABLED_MAX
 };
 
-struct clx_memdev {
+struct clx_memdev { // NOLINT(*-pro-type-member-init)
     struct device dev;
     struct cdev cdev;
     struct cxl_dev_state *cxlds{};
@@ -46,7 +48,7 @@ struct clx_memdev {
     int depth;
 };
 
-struct cxl_mbox_cmd {
+struct cxl_mbox_cmd { // NOLINT(*-pro-type-member-init)
     u16 opcode;
     void *payload_in;
     void *payload_out;
@@ -94,6 +96,104 @@ struct cxl_dpa_perf {
     int qos_class;
 };
 
+struct cxl_dev_state {
+    struct device *dev;
+    struct cxl_memdev *cxlmd;
+    struct cxl_register_map reg_map;
+    struct cxl_regs regs;
+    int cxl_dvsec;
+    bool rcd;
+    bool media_ready;
+    struct resource dpa_res;
+    struct resource pmem_res;
+    struct resource ram_res;
+    u64 serial;
+    enum cxl_devtype type;
+    struct cxl_mailbox cxl_mbox;
+};
+
+struct cxl_memdev_state {
+    struct cxl_dev_state cxlds;
+    size_t lsa_size;
+    char firmware_version[0x10];
+    DECLARE_BITMAP(enabled_cmds, CXL_MEM_COMMAND_ID_MAX);
+    DECLARE_BITMAP(exclusive_cmds, CXL_MEM_COMMAND_ID_MAX);
+    u64 total_bytes;
+    u64 volatile_only_bytes;
+    u64 persistent_only_bytes;
+    u64 partition_align_bytes;
+    u64 active_volatile_bytes;
+    u64 active_persistent_bytes;
+    u64 next_volatile_bytes;
+    u64 next_persistent_bytes;
+
+    struct cxl_dpa_perf ram_perf;
+    struct cxl_dpa_perf pmem_perf;
+
+    struct cxl_event_state event;
+    struct cxl_poison_state poison;
+    struct cxl_security_state security;
+    struct cxl_fw_state fw;
+};
+
+struct cxl_mem_command {
+    struct cxl_command_info info;
+    enum cxl_opcode opcode;
+    u32 flags;
+#define CXL_CMD_FLAG_FORCE_ENABLE BIT(0)
+};
+
+struct cxl_hdm {
+    struct cxl_component_regs regs;
+    unsigned int decoder_count;
+    unsigned int target_count;
+    unsigned int interleave_mask;
+    unsigned long iw_cap_mask;
+    struct cxl_port *port;
+};
+
+struct cxl_command_info {
+    __u32 id;
+
+    __u32 flags;
+#define CXL_MEM_COMMAND_FLAG_MASK		GENMASK(1, 0)
+#define CXL_MEM_COMMAND_FLAG_ENABLED		BIT(0)
+#define CXL_MEM_COMMAND_FLAG_EXCLUSIVE		BIT(1)
+
+    __u32 size_in;
+    __u32 size_out;
+};
+
+struct cxl_mem_query_commands {
+    __u32 n_commands;
+    __u32 rsvd;
+    struct cxl_command_info __user commands[]; /* out: supported commands */
+};
+
+struct cxl_send_command {
+    __u32 id;
+    __u32 flags;
+    union {
+        struct {
+            __u16 opcode;
+            __u16 rsvd;
+        } raw;
+        __u32 rsvd;
+    };
+    __u32 retval;
+
+    struct {
+        __u32 size;
+        __u32 rsvd;
+        __u64 payload;
+    } in;
+
+    struct {
+        __u32 size;
+        __u32 rsvd;
+        __u64 payload;
+    } out;
+};
 
 
 

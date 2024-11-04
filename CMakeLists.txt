@@ -31,4 +31,7 @@ add_executable(cxl_esbmc main.cpp
         linux/drivers/cxl/pmem.c
         linux/include/linux/workqueue.h
         linux/include/linux/timer_types.h
+        linux/include/linux/range.h
+        linux/include/linux/node.h
+        linux/drivers/cxl/cxl.h
 )
