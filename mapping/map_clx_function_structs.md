@@ -63,4 +63,4 @@
 23. struct cxl_endpoint_dvsec_info - 
 24. struct cxl_command_info - 
 25. struct cxl_mem_query_commands - 
-26. struct cxl_send_command
+26. struct cxl_send_command - ok

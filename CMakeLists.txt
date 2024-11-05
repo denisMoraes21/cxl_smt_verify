@@ -34,4 +34,6 @@ add_executable(cxl_esbmc main.cpp
         linux/include/linux/range.h
         linux/include/linux/node.h
         linux/drivers/cxl/cxl.h
+        linux/include/uapi/linux/cxl_mem.h
+        linux/include/uapi/linux/types.h
 )

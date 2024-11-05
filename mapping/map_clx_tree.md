@@ -326,3 +326,27 @@
     struct cxl_poison_state poison;
     struct cxl_security_state security;
     struct cxl_fw_state fw;
+
+26. struct cxl_send_command: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/cxl_mem.h#L208
+  - __u32 id: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+  - __u32 flags: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+  - union {
+    struct {
+    __u16 opcode: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    __u16 rsvd: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    } raw;
+  - __u32 rsvd: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    };
+  - __u32 retval: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+
+  - struct {
+    __u32 size: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    __u32 rsvd: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    __u64 payload: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    } in;
+
+  - struct {
+    __u32 size: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    __u32 rsvd: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    __u64 payload: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
+    } out;

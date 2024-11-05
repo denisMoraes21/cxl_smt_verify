@@ -170,31 +170,4 @@ struct cxl_mem_query_commands {
     struct cxl_command_info __user commands[]; /* out: supported commands */
 };
 
-struct cxl_send_command {
-    __u32 id;
-    __u32 flags;
-    union {
-        struct {
-            __u16 opcode;
-            __u16 rsvd;
-        } raw;
-        __u32 rsvd;
-    };
-    __u32 retval;
-
-    struct {
-        __u32 size;
-        __u32 rsvd;
-        __u64 payload;
-    } in;
-
-    struct {
-        __u32 size;
-        __u32 rsvd;
-        __u64 payload;
-    } out;
-};
-
-
-
 #endif //CXLMEM_H

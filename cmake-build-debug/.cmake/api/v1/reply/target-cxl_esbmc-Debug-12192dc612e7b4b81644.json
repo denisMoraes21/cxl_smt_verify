@@ -132,7 +132,9 @@
 				26,
 				27,
 				28,
-				29
+				29,
+				30,
+				31
 			]
 		}
 	],
@@ -290,6 +292,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "linux/drivers/cxl/cxl.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/uapi/linux/cxl_mem.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/uapi/linux/types.h",
 			"sourceGroupIndex" : 1
 		}
 	],
