@@ -8,6 +8,13 @@
 #include "../acpi/actypes.h"
 #include "../uapi/asm_generic/posix_types.h"
 
+typedef enum {
+    GFP_KERNEL,
+    GFP_ATOMIC,
+    GFP_HIGHMEM,
+    GFP_HIGH
+} gfp_t;
+
 typedef unsigned long long u64;
 
 struct hlist_node {
@@ -23,7 +30,7 @@ typedef __kernel_gid32_t gid_t;
 
 typedef unsigned short umode_t;
 
-typedef u32 __kernel_dev_t;
+typedef u32 __kernel_dev_t; // NOLINT(*-reserved-identifier)
 typedef __kernel_dev_t dev_t;
 
 struct list_head {

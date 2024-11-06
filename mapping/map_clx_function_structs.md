@@ -56,11 +56,11 @@
 16. struct cxl_region_params - 
 17. struct cxl_region - 
 18. struct cxl_port - 
-19. struct cxl_root - 
+19. struct cxl_root - ok 
 20. struct cxl_dport - 
 21. struct cxl_ep - ok
-22. struct cxl_region_ref -
-23. struct cxl_endpoint_dvsec_info - 
-24. struct cxl_command_info - 
+22. struct cxl_region_ref - ok
+23. struct cxl_endpoint_dvsec_info - ok
+24. struct cxl_command_info - ok
 25. struct cxl_mem_query_commands - ok
 26. struct cxl_send_command - ok

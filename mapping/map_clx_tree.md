@@ -327,6 +327,23 @@
     struct cxl_security_state security;
     struct cxl_fw_state fw;
 
+
+23. struct cxl_region_ref: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
+  - struct cxl_port *port;
+  - struct cxl_decoder *decoder;
+  - struct cxl_region *region;
+  - struct xarray endpoints;
+  - int nr_targets_set;
+  - int nr_eps;
+  - int nr_targets;
+
+24. struct cxl_command_info: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
+  - bool mem_enabled;
+  - int ranges;
+  - struct cxl_port *port;
+  - struct range dvsec_range[2];
+
+
 25. struct cxl_mem_query_commands: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/cxl_mem.h#L208
   - __u32 n_commands;
   - __u32 rsvd;

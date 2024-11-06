@@ -134,7 +134,9 @@
 				28,
 				29,
 				30,
-				31
+				31,
+				32,
+				33
 			]
 		}
 	],
@@ -302,6 +304,16 @@
 		{
 			"backtrace" : 1,
 			"path" : "linux/include/uapi/linux/types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/xarray.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/compiler_types.h",
 			"sourceGroupIndex" : 1
 		}
 	],

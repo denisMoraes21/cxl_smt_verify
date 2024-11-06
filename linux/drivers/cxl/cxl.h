@@ -5,6 +5,9 @@
 #ifndef CXL_H
 #define CXL_H
 
+#include "../../include/linux/range.h"
+#include "../../include/linux/xarray.h"
+
 struct cxl_register_map {
     struct device *host;
     void __iomem *base;
@@ -92,7 +95,7 @@ struct cxl_port {
     long pci_latency;
 };
 
-struct cxl_root {
+struct cxl_root { // NOLINT(*-pro-type-member-init)
     struct cxl_port port;
     const struct cxl_root_ops *ops;
 };
@@ -131,7 +134,5 @@ struct cxl_endpoint_dvsec_info {
     struct cxl_port *port;
     struct range dvsec_range[2];
 };
-
-
 
 #endif //CXL_H
