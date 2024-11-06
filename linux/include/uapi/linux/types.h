@@ -9,4 +9,6 @@ typedef unsigned int __u32; // NOLINT(*-reserved-identifier)
 typedef unsigned short __u16; // NOLINT(*-reserved-identifier)
 typedef unsigned long __u64; // NOLINT(*-reserved-identifier)
 
+#define __user // NOLINT(*-reserved-identifier)
+
 #endif //TYPES_H

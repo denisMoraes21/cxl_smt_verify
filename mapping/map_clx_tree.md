@@ -327,6 +327,11 @@
     struct cxl_security_state security;
     struct cxl_fw_state fw;
 
+25. struct cxl_mem_query_commands: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/cxl_mem.h#L208
+  - __u32 n_commands;
+  - __u32 rsvd;
+  - struct cxl_command_info __user commands[]: https://github.com/torvalds/linux/blob/master/tools/include/linux/types.h#L56
+
 26. struct cxl_send_command: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/cxl_mem.h#L208
   - __u32 id: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
   - __u32 flags: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
