@@ -327,7 +327,17 @@
     struct cxl_security_state security;
     struct cxl_fw_state fw;
 
-  
+20. struct cxl_dport: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L674
+  - struct device *dport_dev;
+  - struct cxl_register_map reg_map;
+  - int port_id;
+  - struct cxl_rcrb_info rcrb: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L657
+  - bool rch;
+  - struct cxl_port *port: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L604
+  - struct cxl_regs regs: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L207
+  - struct access_coordinate coord[ACCESS_COORDINATE_MAX]: https://github.com/torvalds/linux/blob/master/include/linux/node.h#L29
+  - long link_latency;
+
 21. struct cxl_dport: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L674
   - struct device *dport_dev;
   - struct cxl_register_map reg_map;
@@ -336,7 +346,7 @@
   - bool rch;
   - struct cxl_port *port;
   - struct cxl_regs regs;
-  - struct access_coordinate coord[ACCESS_COORDINATE_MAX];
+  - struct access_coordinate coord[ACCESS_COORDINATE_MAX]: https://github.com/torvalds/linux/blob/master/include/linux/node.h#L29
   - long link_latency;
 
 22. struct cxl_region_ref: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
@@ -389,3 +399,7 @@
     __u32 rsvd: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
     __u64 payload: https://github.com/torvalds/linux/blob/2e1b3cc9d7f790145a80cb705b168f05dab65df2/include/uapi/linux/types.h
     } out;
+
+27. struct cxl_rcrb_info: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L657
+  - resource_size_t base: https://github.com/torvalds/linux/blob/master/include/linux/types.h#L167
+  - u16 aer_cap: https://github.com/torvalds/linux/blob/master/include/linux/types.h#L167

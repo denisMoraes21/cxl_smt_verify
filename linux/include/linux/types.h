@@ -7,6 +7,9 @@
 
 #include "../acpi/actypes.h"
 #include "../uapi/asm_generic/posix_types.h"
+typedef unsigned short u16;
+typedef u32 phys_addr_t;
+typedef phys_addr_t resource_size_t;
 
 typedef enum {
     GFP_KERNEL,

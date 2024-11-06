@@ -8,6 +8,7 @@
 #include "../../include/linux/range.h"
 #include "../../include/linux/xarray.h"
 #include "../../include/linux/node.h"
+#include "../../include/linux/types.h"
 
 struct cxl_register_map {
     struct device *host;
