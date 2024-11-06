@@ -7,6 +7,7 @@
 
 #include "../../include/linux/range.h"
 #include "../../include/linux/xarray.h"
+#include "../../include/linux/node.h"
 
 struct cxl_register_map {
     struct device *host;
@@ -100,7 +101,29 @@ struct cxl_root { // NOLINT(*-pro-type-member-init)
     const struct cxl_root_ops *ops;
 };
 
-struct cxl_dport {
+struct cxl_rcrb_info {
+    resource_size_t base;
+    u16 aer_cap;
+};
+
+struct cxl_regs {
+    struct_group_tagged(cxl_component_regs, component,
+        void __iomem *hdm_decoder;
+        void __iomem *ras;
+    );
+    struct_group_tagged(cxl_device_regs, device_regs,
+        void __iomem *status, *mbox, *memdev;
+    );
+
+    struct_group_tagged(cxl_pmu_regs, pmu_regs,
+        void __iomem *pmu;
+    );
+    struct_group_tagged(cxl_rch_regs, rch_regs,
+        void __iomem *dport_aer;
+    );
+};
+
+struct cxl_dport { // NOLINT(*-pro-type-member-init)
     struct device *dport_dev;
     struct cxl_register_map reg_map;
     int port_id;

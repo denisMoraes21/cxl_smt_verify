@@ -327,8 +327,19 @@
     struct cxl_security_state security;
     struct cxl_fw_state fw;
 
+  
+21. struct cxl_dport: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L674
+  - struct device *dport_dev;
+  - struct cxl_register_map reg_map;
+  - int port_id;
+  - struct cxl_rcrb_info rcrb: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L657
+  - bool rch;
+  - struct cxl_port *port;
+  - struct cxl_regs regs;
+  - struct access_coordinate coord[ACCESS_COORDINATE_MAX];
+  - long link_latency;
 
-23. struct cxl_region_ref: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
+22. struct cxl_region_ref: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
   - struct cxl_port *port;
   - struct cxl_decoder *decoder;
   - struct cxl_region *region;
@@ -336,6 +347,12 @@
   - int nr_targets_set;
   - int nr_eps;
   - int nr_targets;
+
+23. struct cxl_endpoint_dvsec_info: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
+  - bool mem_enabled;
+  - int ranges;
+  - struct cxl_port *port: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h#L604
+  - struct range dvsec_range[2]: https://github.com/torvalds/linux/blob/master/include/linux/range.h#L6
 
 24. struct cxl_command_info: https://github.com/torvalds/linux/blob/master/drivers/cxl/cxl.h
   - bool mem_enabled;
