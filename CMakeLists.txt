@@ -28,7 +28,6 @@ add_executable(cxl_esbmc main.cpp
         linux/include/linux/workqueue_types.h
         linux/include/asm-generic/int-ll64.h
         linux/include/asm-generic/int_l64.h
-        linux/drivers/cxl/pmem.c
         linux/include/linux/workqueue.h
         linux/include/linux/timer_types.h
         linux/include/linux/range.h
@@ -38,4 +37,8 @@ add_executable(cxl_esbmc main.cpp
         linux/include/uapi/linux/types.h
         linux/include/linux/xarray.h
         linux/include/linux/compiler_types.h
+        linux/include/linux/idr.h
+        linux/include/uapi/asm/posix_types.h
+        linux/include/cxl/mailbox.h
+        linux/include/linux/rcuwait.h
 )

@@ -53,19 +53,6 @@
 				2,
 				3
 			]
-		},
-		{
-			"compileCommandFragments" : 
-			[
-				{
-					"fragment" : "-g -fdiagnostics-color=always"
-				}
-			],
-			"language" : "C",
-			"sourceIndexes" : 
-			[
-				24
-			]
 		}
 	],
 	"id" : "cxl_esbmc::@6890427a1f51a3e7e1df",
@@ -99,8 +86,7 @@
 			[
 				0,
 				2,
-				3,
-				24
+				3
 			]
 		},
 		{
@@ -128,6 +114,7 @@
 				21,
 				22,
 				23,
+				24,
 				25,
 				26,
 				27,
@@ -136,7 +123,10 @@
 				30,
 				31,
 				32,
-				33
+				33,
+				34,
+				35,
+				36
 			]
 		}
 	],
@@ -267,12 +257,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"compileGroupIndex" : 1,
-			"path" : "linux/drivers/cxl/pmem.c",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "linux/include/linux/workqueue.h",
 			"sourceGroupIndex" : 1
 		},
@@ -314,6 +298,26 @@
 		{
 			"backtrace" : 1,
 			"path" : "linux/include/linux/compiler_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/idr.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/uapi/asm/posix_types.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/cxl/mailbox.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "linux/include/linux/rcuwait.h",
 			"sourceGroupIndex" : 1
 		}
 	],

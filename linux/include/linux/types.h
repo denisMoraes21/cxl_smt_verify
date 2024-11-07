@@ -7,9 +7,14 @@
 
 #include "../acpi/actypes.h"
 #include "../uapi/asm_generic/posix_types.h"
+
+typedef unsigned char __u8; // NOLINT(*-reserved-identifier)
+typedef	unsigned int __u32; // NOLINT(*-reserved-identifier)
+typedef unsigned char u8;
 typedef unsigned short u16;
 typedef u32 phys_addr_t;
 typedef phys_addr_t resource_size_t;
+typedef __kernel_size_t	size_t;
 
 typedef enum {
     GFP_KERNEL,

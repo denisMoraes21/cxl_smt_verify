@@ -12,8 +12,11 @@
 #include "../../include/linux/workqueue.h"
 #include "../../include/linux/range.h"
 #include "../../include/linux/node.h"
+#include "cxl.h"
+#include "../../include/linux/ioport.h"
 
 #define CXL_FW_STATE_BITS		32
+static DECLARE_BITMAP(core_power, NR_CPUS);
 
 enum poison_cmd_enabled_bits {
     CXL_POISON_ENABLED_LIST,
@@ -35,6 +38,55 @@ enum security_cmd_enabled_bits {
     CXL_SEC_ENABLED_FREEZE_SECURITY,
     CXL_SEC_ENABLED_PASSPHRASE_SECURE_ERASE,
     CXL_SEC_ENABLED_MAX
+};
+
+enum cxl_devtype {
+    CXL_DEVTYPE_DEVMEM,
+    CXL_DEVTYPE_CLASSMEM,
+};
+
+enum cxl_opcode {
+    CXL_MBOX_OP_INVALID		= 0x0000,
+    CXL_MBOX_OP_RAW			= CXL_MBOX_OP_INVALID,
+    CXL_MBOX_OP_GET_EVENT_RECORD	= 0x0100,
+    CXL_MBOX_OP_CLEAR_EVENT_RECORD	= 0x0101,
+    CXL_MBOX_OP_GET_EVT_INT_POLICY	= 0x0102,
+    CXL_MBOX_OP_SET_EVT_INT_POLICY	= 0x0103,
+    CXL_MBOX_OP_GET_FW_INFO		= 0x0200,
+    CXL_MBOX_OP_TRANSFER_FW		= 0x0201,
+    CXL_MBOX_OP_ACTIVATE_FW		= 0x0202,
+    CXL_MBOX_OP_GET_TIMESTAMP	= 0x0300,
+    CXL_MBOX_OP_SET_TIMESTAMP	= 0x0301,
+    CXL_MBOX_OP_GET_SUPPORTED_LOGS	= 0x0400,
+    CXL_MBOX_OP_GET_LOG		= 0x0401,
+    CXL_MBOX_OP_GET_LOG_CAPS	= 0x0402,
+    CXL_MBOX_OP_CLEAR_LOG           = 0x0403,
+    CXL_MBOX_OP_GET_SUP_LOG_SUBLIST = 0x0405,
+    CXL_MBOX_OP_IDENTIFY		= 0x4000,
+    CXL_MBOX_OP_GET_PARTITION_INFO	= 0x4100,
+    CXL_MBOX_OP_SET_PARTITION_INFO	= 0x4101,
+    CXL_MBOX_OP_GET_LSA		= 0x4102,
+    CXL_MBOX_OP_SET_LSA		= 0x4103,
+    CXL_MBOX_OP_GET_HEALTH_INFO	= 0x4200,
+    CXL_MBOX_OP_GET_ALERT_CONFIG	= 0x4201,
+    CXL_MBOX_OP_SET_ALERT_CONFIG	= 0x4202,
+    CXL_MBOX_OP_GET_SHUTDOWN_STATE	= 0x4203,
+    CXL_MBOX_OP_SET_SHUTDOWN_STATE	= 0x4204,
+    CXL_MBOX_OP_GET_POISON		= 0x4300,
+    CXL_MBOX_OP_INJECT_POISON	= 0x4301,
+    CXL_MBOX_OP_CLEAR_POISON	= 0x4302,
+    CXL_MBOX_OP_GET_SCAN_MEDIA_CAPS	= 0x4303,
+    CXL_MBOX_OP_SCAN_MEDIA		= 0x4304,
+    CXL_MBOX_OP_GET_SCAN_MEDIA	= 0x4305,
+    CXL_MBOX_OP_SANITIZE		= 0x4400,
+    CXL_MBOX_OP_SECURE_ERASE	= 0x4401,
+    CXL_MBOX_OP_GET_SECURITY_STATE	= 0x4500,
+    CXL_MBOX_OP_SET_PASSPHRASE	= 0x4501,
+    CXL_MBOX_OP_DISABLE_PASSPHRASE	= 0x4502,
+    CXL_MBOX_OP_UNLOCK		= 0x4503,
+    CXL_MBOX_OP_FREEZE_SECURITY	= 0x4504,
+    CXL_MBOX_OP_PASSPHRASE_SECURE_ERASE	= 0x4505,
+    CXL_MBOX_OP_MAX			= 0x10000
 };
 
 struct clx_memdev { // NOLINT(*-pro-type-member-init)
@@ -96,7 +148,7 @@ struct cxl_dpa_perf {
     int qos_class;
 };
 
-struct cxl_dev_state {
+struct cxl_dev_state { // NOLINT(*-pro-type-member-init)
     struct device *dev;
     struct cxl_memdev *cxlmd;
     struct cxl_register_map reg_map;
@@ -136,7 +188,19 @@ struct cxl_memdev_state {
     struct cxl_fw_state fw;
 };
 
-struct cxl_mem_command {
+struct cxl_command_info {
+    __u32 id;
+
+    __u32 flags;
+#define CXL_MEM_COMMAND_FLAG_MASK		GENMASK(1, 0)
+#define CXL_MEM_COMMAND_FLAG_ENABLED		BIT(0)
+#define CXL_MEM_COMMAND_FLAG_EXCLUSIVE		BIT(1)
+
+    __u32 size_in;
+    __u32 size_out;
+};
+
+struct cxl_mem_command { // NOLINT(*-pro-type-member-init)
     struct cxl_command_info info;
     enum cxl_opcode opcode;
     u32 flags;

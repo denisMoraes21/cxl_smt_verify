@@ -67,12 +67,6 @@ build CMakeFiles/cxl_esbmc.dir/bear_examples/GCC/gcc_example.cpp.o: CXX_COMPILER
   OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
   OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir/bear_examples/GCC
 
-build CMakeFiles/cxl_esbmc.dir/linux/drivers/cxl/pmem.c.o: C_COMPILER__cxl_esbmc_unscanned_Debug /home/denis/CLionProjects/cxl_esbmc/linux/drivers/cxl/pmem.c || cmake_object_order_depends_target_cxl_esbmc
-  DEP_FILE = CMakeFiles/cxl_esbmc.dir/linux/drivers/cxl/pmem.c.o.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
-  OBJECT_FILE_DIR = CMakeFiles/cxl_esbmc.dir/linux/drivers/cxl
-
 
 # =============================================================================
 # Link build statements for EXECUTABLE target cxl_esbmc
@@ -81,7 +75,7 @@ build CMakeFiles/cxl_esbmc.dir/linux/drivers/cxl/pmem.c.o: C_COMPILER__cxl_esbmc
 #############################################
 # Link the executable cxl_esbmc
 
-build cxl_esbmc: CXX_EXECUTABLE_LINKER__cxl_esbmc_Debug CMakeFiles/cxl_esbmc.dir/main.cpp.o CMakeFiles/cxl_esbmc.dir/bear_examples/Clang/clang_example.cpp.o CMakeFiles/cxl_esbmc.dir/bear_examples/GCC/gcc_example.cpp.o CMakeFiles/cxl_esbmc.dir/linux/drivers/cxl/pmem.c.o
+build cxl_esbmc: CXX_EXECUTABLE_LINKER__cxl_esbmc_Debug CMakeFiles/cxl_esbmc.dir/main.cpp.o CMakeFiles/cxl_esbmc.dir/bear_examples/Clang/clang_example.cpp.o CMakeFiles/cxl_esbmc.dir/bear_examples/GCC/gcc_example.cpp.o
   FLAGS = -g
   OBJECT_DIR = CMakeFiles/cxl_esbmc.dir
   POST_BUILD = :

@@ -45,19 +45,19 @@
 5. struct cxl_fw_state - ?
 6. struct cxl_security_state - ?
 7. struct cxl_dpa_perf - ok
-8. struct cxl_dev_state - 
-9. struct cxl_memdev_state - 
-10. struct cxl_mem_command - 
-11. struct cxl_hdm -
-12. struct cxl_decoder - ?
-13. struct cxl_endpoint_decoder - 
-14. struct cxl_switch_decoder - 
-15. struct cxl_root_decoder - 
-16. struct cxl_region_params - 
-17. struct cxl_region - 
-18. struct cxl_port - 
+8. struct cxl_dev_state - ok
+9. struct cxl_memdev_state - ?
+10. struct cxl_mem_command - ok
+11. struct cxl_hdm - ?
+12. struct cxl_decoder - ok
+13. struct cxl_endpoint_decoder - ok
+14. struct cxl_switch_decoder - ok
+15. struct cxl_root_decoder - ok
+16. struct cxl_region_params - ok
+17. struct cxl_region - ok
+18. struct cxl_port - ?
 19. struct cxl_root - ok 
-20. struct cxl_dport - ok
+20. struct cxl_dport - ?
 21. struct cxl_ep - ok
 22. struct cxl_region_ref - ok
 23. struct cxl_endpoint_dvsec_info - ok
