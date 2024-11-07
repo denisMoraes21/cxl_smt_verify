@@ -9,6 +9,10 @@
 #include "../../include/linux/xarray.h"
 #include "../../include/linux/node.h"
 #include "../../include/linux/types.h"
+#include "../../include/linux/stddef.h"
+#include "../scsi/ips.h"
+#include "../net/ethernet/marvell/octeontx2/nic/otx2_common.h"
+#include "../net/ethernet/marvell/octeontx2/af/mbox.h"
 
 struct cxl_register_map {
     struct device *host;
